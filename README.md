@@ -1,128 +1,213 @@
-🎭 Playwright Course – End-to-End Testing
+# 🎭 Playwright Course -- End-to-End Testing
 
-This repository contains my learning journey, practice exercises, and projects from the Playwright Course focused on modern End-to-End (E2E) testing using Playwright.
+This repository contains my learning journey, practice exercises, and
+projects from the Playwright Course focused on modern **End-to-End
+(E2E)** testing.
 
-The course covers automation testing for web applications using JavaScript / TypeScript, including UI testing, API testing, test configuration, and CI integration.
+The goal of this project is to master automation testing for web
+applications using JavaScript/TypeScript, covering everything from UI
+interactions to CI/CD integration.
 
-📚 Course Overview
+------------------------------------------------------------------------
 
-Playwright is a modern end-to-end testing framework developed by Microsoft that supports:
+## 📚 Course Overview
 
-🌐 Cross-browser testing (Chromium, Firefox, WebKit)
+Playwright is a modern E2E testing framework developed by Microsoft that
+ensures fast, reliable, and capable testing for the modern web.
 
-⚡ Fast and reliable execution
+-   🌐 **Cross-browser testing:** Chromium, Firefox, WebKit\
+-   ⚡ **Fast and reliable:** No more "flaky" tests with auto-wait
+    logic\
+-   🎥 **Observability:** Built-in test tracing, videos, and
+    screenshots\
+-   🔄 **Concurrency:** Parallel test execution out of the box\
+-   🧪 **Unified:** API testing and UI testing in one tool\
+-   📱 **Mobile:** Emulation for responsive and mobile web testing
 
-🎥 Built-in test tracing & debugging
+------------------------------------------------------------------------
 
-🔄 Parallel test execution
+## 🛠️ Tech Stack
 
-🧪 API testing capabilities
+-   **Language:** TypeScript / Node.js\
+-   **Framework:** [Playwright](https://playwright.dev/)\
+-   **Runner:** Playwright Test Runner\
+-   **Version Control:** Git & GitHub\
+-   **CI/CD:** Jenkins / GitHub Actions
 
-📱 Mobile and responsive testing
+------------------------------------------------------------------------
 
-🛠️ Tech Stack
+## 🚀 Installation & Setup
 
-Playwright
+### 1. Clone the repository:
 
-TypeScript
-
-Node.js
-
-Playwright Test Runner
-
-Git & GitHub
-
-Jenkins
-
-🚀 Installation & Setup
-
-Clone the repository:
-
-git clone <repository-url>
+``` bash
+git clone https://github.com/your-username/playwright-course.git
 cd playwright-course
+```
 
-Install dependencies:
+### 2. Install dependencies:
 
+``` bash
 npm install
+```
 
-Install Playwright browsers:
+### 3. Install Playwright browsers:
 
+``` bash
 npx playwright install
-▶️ Running Tests
+```
+
+### 4. Verify installation:
+
+``` bash
+npx playwright --version
+```
+
+------------------------------------------------------------------------
+
+## ▶️ Running Tests
 
 Run all tests:
 
+``` bash
 npx playwright test
+```
 
 Run tests in headed mode:
 
+``` bash
 npx playwright test --headed
-
-Run a specific test file:
-
-npx playwright test tests/example.spec.ts
+```
 
 Run tests in UI mode:
 
+``` bash
 npx playwright test --ui
-🧪 Topics Covered
+```
 
-✅ Introduction to Playwright
+Run a specific test file:
 
-✅ Locators and Selectors
+``` bash
+npx playwright test tests/example.spec.ts
+```
 
-✅ Assertions
+Run tests in debug mode:
 
-✅ Handling Forms & Inputs
+``` bash
+npx playwright test --debug
+```
 
-✅ Page Object Model (POM)
+------------------------------------------------------------------------
 
-✅ Handling Waits & Timeouts
+## 📂 Project Structure
 
-✅ API Testing
+    playwright-course/
+    │
+    ├── tests/                  # Test specifications
+    ├── pages/                  # Page Object Models
+    ├── fixtures/               # Custom fixtures
+    ├── utils/                  # Helper functions
+    ├── test-data/              # Test data files
+    ├── playwright.config.ts    # Playwright configuration
+    ├── package.json
+    └── README.md
 
-✅ Test Hooks
+------------------------------------------------------------------------
 
-✅ Fixtures
+## 🧪 Topics Covered
 
-✅ Parallel Execution
+-   Playwright fundamentals\
+-   Locators & selectors\
+-   Assertions & validations\
+-   Handling forms and user interactions\
+-   Page Object Model (POM)\
+-   Auto-waiting & timeouts\
+-   API testing\
+-   Test hooks (beforeEach, afterEach)\
+-   Fixtures and reusable setup\
+-   Parallel execution\
+-   Debugging & tracing\
+-   Test reporting\
+-   CI/CD integration
 
-✅ Debugging & Tracing
+------------------------------------------------------------------------
 
-✅ CI/CD Integration
+## 🧩 Sample Test Example
 
-📊 Reporting
+``` typescript
+import { test, expect } from '@playwright/test';
 
-Playwright provides built-in HTML reports.
+test('Verify homepage title', async ({ page }) => {
+  await page.goto('https://example.com');
+  await expect(page).toHaveTitle(/Example/);
+});
+```
 
-Generate report after test execution:
+------------------------------------------------------------------------
 
+## 📊 Reporting
+
+Generate and view the HTML report:
+
+``` bash
 npx playwright show-report
-🧠 Key Learnings
+```
 
-Writing stable and maintainable test cases
+Open trace viewer:
 
-Implementing Page Object Model for scalability
+``` bash
+npx playwright show-trace trace.zip
+```
 
-Managing test data and fixtures
+------------------------------------------------------------------------
 
-Debugging failing tests efficiently
+## 🔄 CI/CD Integration
 
-Structuring automation frameworks professionally
+Example GitHub Actions workflow:
 
-📌 Future Improvements
+``` yaml
+name: Playwright Tests
+on: [push, pull_request]
 
-Add real-world project automation
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm install
+      - run: npx playwright install --with-deps
+      - run: npx playwright test
+```
 
-Integrate with CI (GitHub Actions)
+------------------------------------------------------------------------
 
-Dockerize test execution
+## 🧠 Key Learnings
 
-Add visual regression testing
+-   Writing stable and maintainable automation tests\
+-   Implementing scalable Page Object Model architecture\
+-   Reducing flakiness using Playwright auto-wait features\
+-   Structuring automation frameworks professionally\
+-   Debugging efficiently with trace viewer\
+-   Integrating automated tests into CI/CD pipelines
 
-👨‍💻 Author
+------------------------------------------------------------------------
 
-Shuvam Aich
-Backend Developer | Automation Enthusiast
-Exploring scalable test automation frameworks
+## 📌 Future Enhancements
 
+-   Visual regression testing\
+-   Dockerized test execution\
+-   Test coverage integration\
+-   Advanced reporting (Allure, custom dashboards)\
+-   Cross-environment configuration support
+
+------------------------------------------------------------------------
+
+## 👨‍💻 Author
+
+**Shuvam**\
+Backend Developer \| Automation Enthusiast\
+Passionate about building scalable and reliable test automation
+frameworks
